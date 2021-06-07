@@ -11,7 +11,7 @@
             <xpath expr="//field[@name='journal_id']" position="attributes">
               <attribute name="attrs">{"readonly": [("state","=","draft")]}</attribute>
             </xpath>
-            <xpath expr="//field[@name='payment_id']" position="after">
+            <xpath expr="//field[@name='ref']" position="after">
                 <field name="job_name"/>
                 <field name="customer_reference"/>
             </xpath>

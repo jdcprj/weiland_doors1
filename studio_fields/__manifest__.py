@@ -9,19 +9,19 @@
     'website': 'https://www.aktivsoftware.com/',
     'author': 'Aktivsoftware',
     'category': '',
-    'version': '13.0.1.0.10',
-    'depends': ['base','contacts', 'account', 
-    'sale_management', 'stock', 'mrp', 'product', 'stock_landed_costs', 
-    'stock_account', 'purchase', 'sale_crm', 'project', 'project_enterprise', 
+    'version': '13.0.1.0.11',
+    'depends': ['base','contacts', 'account',
+    'sale_management', 'stock', 'mrp', 'product', 'stock_landed_costs',
+    'stock_account', 'purchase', 'sale_crm', 'project', 'project_enterprise',
     'stock_picking_batch', 'purchase_requisition'],
     'data': [
         'security/ir.model.access.csv',
         'security/base_group.xml',
 
         'views/res_partner_views.xml',
-        
+
         'views/mail_template_views.xml',
-        
+
         'views/sale_order_views.xml',
         'views/sale_order_line_views.xml',
 
@@ -52,7 +52,7 @@
         'views/purchase_order_views.xml',
         'views/purchase_requisition_views.xml',
         # 'views/purchase_report_views.xml',
-        
+
         'views/hr_employee_views.xml',
 
         'views/crm_lead_tag_views.xml',
@@ -65,9 +65,9 @@
         'views/account_bank_statement_views.xml',
         'views/account_bank_statement_line_views.xml',
         'views/account_online_provider_views.xml',
-        
+
         'views/payment_acquirer_views.xml',
-        
+
         'views/mail_message_views.xml',
 
         'views/project_task_views.xml',

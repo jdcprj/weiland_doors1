@@ -7,9 +7,9 @@ class AccountMove(models.Model):
     studio_1099 = fields.Boolean(string="1099", related='partner_id.gets_a_1099')
     source_so_commitment_date = fields.Datetime(
         string="Source SO Commitment date")
-    city_sales_tax = fields.Char(string="City-Sales Tax", 
+    city_sales_tax = fields.Char(string="City-Sales Tax",
         related='partner_shipping_id.city')
-    state_sales_tax = fields.Char(string="State-Sales Tax", 
+    state_sales_tax = fields.Char(string="State-Sales Tax",
         related='partner_shipping_id.state_id.name')
     new_related_field_12 = fields.Char(string="New Related Field")
     new_related_field_id = fields.Many2one(
