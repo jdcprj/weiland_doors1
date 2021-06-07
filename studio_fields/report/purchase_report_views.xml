@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="report_purchaseorder_inherited" inherit_id="purchase.report_purchaseorder_document">
+		<xpath expr="/t/t/div/div[1]" position="after">
+          <div class="row address">
+            <div class="col-5">
+              <div t-field="res_company.parent_id.partner_id" t-options-widget="'contact'"/>
+            </div>
+            <div class="col-5 offset-2"/>
+          </div>
+        </xpath>
+        <xpath expr="/t/t/div/h2[1]" position="replace">
+          <h2 t-if="o.state == 'draft'">
+            <font style="background-color: rgb(0, 0, 0);">Request for Quotation #</font>
+            <span t-field="o.name"/>
+          </h2>
+        </xpath>
+        <xpath expr="/t/t/div/h2[1]" position="replace">
+          <h2 t-if="o.state == 'draft'">
+            <font style="background-color: rgb(255, 255, 255);">Request for Quotation #</font>
+            <span t-field="o.name"/>
+          </h2>
+        </xpath>
+        <xpath expr="/t/t/div/h2[1]" position="replace">
+          <h2 t-if="o.state == 'draft'">
+            <font style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">Request for Quotation #</font>
+            <span t-field="o.name"/>
+          </h2>
+        </xpath>
+        <xpath expr="/t/t/div/h2[1]/span" position="attributes">
+          <attribute name="style" separator=";" add="color:#000000"/>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[1]" position="attributes">
+          <attribute name="style" separator=";" add="color:#000000"/>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[3]/strong" position="replace">
+          <strong>
+            <font style="color: rgb(0, 0, 0);">Date Req.</font>
+          </strong>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[1]/strong" position="attributes">
+          <attribute name="style" separator=";" add="color:#000000"/>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[2]/strong" position="attributes">
+          <attribute name="style" separator=";" add="color:#000000"/>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[4]/strong" position="attributes">
+          <attribute name="style" separator=";" add="color:#000000"/>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[5]/strong" position="attributes">
+          <attribute name="style" separator=";" add="color:#000000"/>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[6]/strong" position="attributes">
+          <attribute name="style" separator=";" add="color:#000000"/>
+        </xpath>
+        <xpath expr="/t/t/div/div[3]/div[1]/strong" position="attributes">
+          <attribute name="style" separator=";" add="color:#000000"/>
+        </xpath>
+        <xpath expr="/t/t/div/div[3]/div[2]/strong" position="attributes">
+          <attribute name="style" separator=";" add="color:#000000"/>
+        </xpath>
+        <xpath expr="/t/t/div/div[3]/div[3]/strong" position="attributes">
+          <attribute name="style" separator=";" add="color:#000000"/>
+        </xpath>
+        <xpath expr="/t/t/div/table" position="attributes">
+          <attribute name="style" separator=";" add="color:#000000"/>
+        </xpath>
+        <xpath expr="/t/t/div/h2[1]/font" position="replace">
+          <font style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">Weiland PO#</font>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/div[3]/div[1]/p[1]" position="attributes">
+          <attribute name="t-field">o.name</attribute>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[1]" position="before">
+          <th>
+            <span>Internal Reference</span>
+          </th>
+        </xpath>
+        <xpath expr="/t/t/div/table/tbody/tr/td[1]" position="before">
+          <td>
+            <span t-field="line.product_id.default_code"/>
+          </td>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]" position="attributes">
+          <attribute name="t-field">line.product_id.name</attribute>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[2]/strong" position="before">
+          <span t-field="o.product_id.description_purchase"/>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/thead[1]/tr[1]/th[2]/span[1]" position="replace"/>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]" position="attributes">
+          <attribute name="t-field">line.product_id.description_purchase</attribute>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]" position="attributes">
+          <attribute name="t-if">line.product_id.description_purchase is False</attribute>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]" position="attributes">
+          <attribute name="t-if">line.name</attribute>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]" position="attributes">
+          <attribute name="t-if">line.product_id.description</attribute>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]" position="attributes">
+          <attribute name="t-if">line.product_id.name</attribute>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]" position="attributes">
+          <attribute name="t-if"/>
+        </xpath>
+        <xpath expr="/t/t/div/table/tbody/tr/td[2]" position="inside">
+          <td>
+            <span t-field="line.name"/>
+          </td>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]" position="replace"/>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/thead[1]/tr[1]/th[2]" position="replace"/>
+        <xpath expr="/t/t/div/table/thead/tr/th[1]" position="after">
+          <th>
+            <span>Name</span>
+          </th>
+        </xpath>
+        <xpath expr="/t/t/div/table/tbody/tr/td[1]" position="after">
+          <td>
+            <span t-field="line.product_id.name"/>
+          </td>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[2]/span" position="replace">
+          <span>Description</span>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]" position="attributes">
+          <attribute name="t-field">line.product_id.display_name</attribute>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]" position="attributes">
+          <attribute name="t-field">line.display_name</attribute>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/div[3]/div[1]/p[1]" position="attributes">
+          <attribute name="t-field">o.x_studio_job_name_for_vendor</attribute>
+        </xpath>
+        <xpath expr="/t/t/div/div[3]/div[1]/strong" position="replace">
+          <strong style="color:#000000">Job Name:</strong>
+        </xpath>
+        <xpath expr="/t/t/div/div[3]/div[2]/strong" position="replace">
+          <strong style="color:#000000">Vendor Quote #:</strong>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/div[3]/div[3]/p[1]" position="attributes">
+          <attribute name="t-options-widget">"date"</attribute>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/tr[1]/td[4]/span[1]" position="attributes">
+          <attribute name="t-options-widget">"date"</attribute>
+        </xpath>
+        <xpath expr="/t/t/t[2]/div" position="attributes">
+          <attribute name="style" separator=";" add="margin-bottom:50px"/>
+        </xpath>
+        <xpath expr="/t/t/t[2]/div" position="attributes">
+          <attribute name="style" separator=";" add="margin-bottom:100px" remove="margin-bottom:50px"/>
+        </xpath>
+        <xpath expr="/t/t/t[2]/div" position="attributes">
+          <attribute name="style" separator=";" add="margin-bottom:0px" remove="margin-bottom:100px"/>
+        </xpath>
+        <xpath expr="/t/t/t[2]/div" position="attributes">
+          <attribute name="style" separator=";" add="margin-top:-100px"/>
+        </xpath>
+        <xpath expr="/t/t/t[2]/div" position="attributes">
+          <attribute name="style" separator=";" add="margin-top:-75px" remove="margin-top:-100px"/>
+        </xpath>
+	</template>
+</odoo>

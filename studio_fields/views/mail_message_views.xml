@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mail_message_tree_inherit_studio_fields" model="ir.ui.view">
+      <field name="name">mail.message.tree.inherit.studio.fields</field>
+      <field name="model">mail.message</field>
+      <field name="inherit_id" ref="mail.view_message_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='tracking_value_ids']" position="inside">
+          <tree string="Tracking Value">
+            <field name="field" />
+            <field name="old_value_integer"/>
+            <field name="old_value_float"/>
+            <field name="old_value_char"/>
+            <field name="old_value_text"/>
+            <field name="old_value_datetime"/>
+            <field name="new_value_integer"/>
+            <field name="new_value_float"/>
+            <field name="new_value_char" />
+            <field name="new_value_text"/>
+            <field name="new_value_datetime"/>
+            <field name="mail_message_id"/>
+          </tree>
+          <form string="Tracking Value">
+            <sheet>
+              <group>
+                <group string="Change">
+                  <field name="field"/>
+                  <field name="field_desc"/>
+                  <field name="field_type"/>
+                  <field name="old_value_integer"/>
+                  <field name="old_value_float"/>
+                  <field name="old_value_char"/>
+                  <field name="old_value_text"/>
+                  <field name="old_value_datetime"/>
+                  <field name="new_value_integer"/>
+                  <field name="new_value_float"/>
+                  <field name="new_value_char"/>
+                  <field name="new_value_text"/>
+                  <field name="new_value_datetime"/>
+                  <field name="tracking_sequence"/>
+                </group>
+                <group string="Related Message">
+                  <field name="mail_message_id"/>
+                </group>
+              </group>
+            </sheet>
+          </form>
+        </xpath>
+      </field>
+    </record>
+</odoo>

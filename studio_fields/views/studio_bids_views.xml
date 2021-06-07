@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="studio_bids_form_view" model="ir.ui.view">
+        <field name="name">studio.bids.form.view</field>
+        <field name="model">studio.bids</field>
+        <field name="arch" type="xml">
+          <form>
+            <sheet string="Bids">
+              <group>
+                <group>
+                  <field name="name"/>
+                  <field name="bidder_id" string="Bidder"/>
+                  <field name="contact_name" string="Contact Name"/>
+                  <field name="contact_email_1" string="Contact Email"/>
+                  <field name="contact_phone" string="Contact Phone"/>
+                  <field name="opportunity_id" string="Opportunity"/>
+                  <field name="sale_id"/>
+                </group>
+                <group>
+                  <field name="chance_to_bid" string="Chance to Bid"/>
+                  <field name="quoted" string="Quoted"/>
+                  <field name="our" string="Our $"/>
+                </group>
+              </group>
+            </sheet>
+         </form>
+        </field>
+    </record>
+
+    <record id="studio_bids_search_view" model="ir.ui.view">
+        <field name="name">studio.bids.search.view</field>
+        <field name="model">studio.bids</field>
+        <field name="arch" type="xml">
+          <tree string="Bids">
+            <field name="name"/>
+            <field name="bidder_id"/>
+            <field name="opportunity_id"/>
+            <field name="chance_to_bid"/>
+            <field name="quoted"/>
+            <field name="our"/>
+          </tree>
+      </field>
+    </record>
+</odoo>

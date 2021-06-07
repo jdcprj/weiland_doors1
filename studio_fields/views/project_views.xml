@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_edit_project_form_inherit_studio_fields" model="ir.ui.view">
+        <field name="name">edit.project.form.inherit.studio.fields</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='user_id']" position="before">
+            <field name="opportunity_id"/>
+            <field name="sale_id"/>
+            <field name="so_opening_line" string="SO Opening Line"/>
+          </xpath>
+          <xpath expr="//field[@name='partner_id']" position="after">
+            <field name="customer_reference"/>
+          </xpath>
+          <xpath expr="//field[@name='analytic_account_id']" position="after">
+            <field name="stage_id"/>
+            <field name="alias_model_id"/>
+          </xpath>
+        </field>
+    </record>
+
+    <record id="view_project_kanban_inherit_studio_fields" model="ir.ui.view">
+        <field name="name">project.kanban.inherit.studio.fields</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="arch" type="xml">
+          <xpath expr="//kanban[1]/templates[1]/t[1]/div[1]/div[1]/span[1]/field[@name='is_favorite']" position="after">
+            <field display="full" name="so_opening_line"/>
+            <field display="full" name="alias_user_id"/>
+            <field display="full" name="alias_parent_thread_id"/>
+            <field display="full" name="alias_parent_model_id"/>
+            <field display="full" name="alias_defaults"/>
+            <field display="full" name="subtask_project_id"/>
+            <field display="full" name="stage_id"/>
+            <field display="full" name="alias_force_thread_id"/>
+            <field display="full" name="customer_reference"/>
+            <field display="full" name="opportunity_id"/>
+            <field display="full" name="sale_id"/>
+        </xpath>
+      </field>
+    </record>
+</odoo>

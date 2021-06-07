@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_attribute_line_tree_view" model="ir.ui.view">
+        <field name="name">product.template.attribute.line.tree</field>
+        <field name="model">product.template.attribute.line</field>
+        <field name="arch" type="xml">
+            <tree string="Product Template Attribute Line">
+              <field name="attribute_id" domain="[('attribute_line_ids.value_ids.name','=',1)]"/>
+              <field name="value_ids"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

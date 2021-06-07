@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mail_template_tree_inherit_studio_fields" model="ir.ui.view">
+      <field name="name">mail.template.tree.inherit.studio.fields</field>
+      <field name="model">mail.template</field>
+      <field name="inherit_id" ref="mail.email_template_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='email_to']" position="attributes">
+          <attribute name="attrs">{"invisible": [["use_default_to","=",True]]}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='partner_to']" position="attributes">
+          <attribute name="attrs">{"invisible": [["use_default_to","=",True]]}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='email_cc']" position="attributes">
+          <attribute name="attrs">{"invisible": [["use_default_to","=",True]]}</attribute>
+        </xpath>
+      </field>
+    </record>
+</odoo>

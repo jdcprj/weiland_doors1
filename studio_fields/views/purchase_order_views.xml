@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_purchase_order_form_inherit_studio_fields" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.studio.fields</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+          <!-- <xpath expr="//field[@name='company_id']" position="replace"> -->
+          <xpath expr="//field[@name='partner_id']" position="attributes">
+            <attribute name="attrs">{"readonly": [("state","in","cancel")]}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='date_order']" position="attributes">
+            <attribute name="attrs">{"readonly": [("state","in","cancel")]}</attribute>
+            <attribute name="widget">date</attribute>
+          </xpath>
+          <xpath expr="//field[@name='company_id']" position="attributes">
+            <attribute name="attrs">{"readonly": [("state","in",["purchase","done","cancel"])]}</attribute>
+            <attribute name="invisible">1</attribute>
+          </xpath>
+          <xpath expr="//field[@name='company_id']" position="after">
+            <field name="create_uid"/>
+            <field name="memo" string="Memo"/>
+            <field name="job_name_for_vendor" string="Job Name for Vendor"/>
+          </xpath>
+          <xpath expr="//field[@name='order_line']" position="attributes">
+            <attribute name="force_save">True</attribute>
+          </xpath>
+          <xpath expr="//field[@name='sequence']" position="after">
+            <field name="order_confirmed" string="Order Acknowledge"/>
+          </xpath>
+          <xpath expr="//field[@name='product_id']" position="attributes">
+            <attribute name="attrs">{"readonly": [("state","in",["purchase","to approve","done","cancel"])]}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='order_line']/tree[1]/field[@name='name']" position="after">
+            <field name="notes" string="Notes"/>
+          </xpath>
+          <xpath expr="//field[@name='date_planned']" position="attributes">
+            <attribute name="string">Est. Ship Date</attribute>
+            <attribute name="widget">date</attribute>
+          </xpath>
+          <xpath expr="//field[@name='date_planned']" position="after">
+            <field name="min_qty" string="Min. Qty"/>
+            <field name="max_qty" string="Max. Qty"/>
+          </xpath>
+          <xpath expr="//field[@name='price_unit']" position="after">
+            <field name="vendor_mesage" string="Vendor Mesage"/>
+          </xpath>
+          <xpath expr="//field[@name='move_ids']" position="inside">
+            <tree decoration-muted="state == 'cancel'" default_order="date_expected, picking_id, sequence" string="Moves">
+              <field name="date_expected" widget="date"/>
+              <field name="date" widget="date"/>
+              <field name="picking_id" string="Reference" invisible="1"/>
+              <field name="sequence" invisible="1"/>
+              <field name="origin"/>
+              <field name="product_id"/>
+              <field name="product_uom_qty"/>
+              <field name="product_uom" options="{'no_open': True, 'no_create': True}" string="Unit of Measure" groups="uom.group_uom"/>
+              <field name="location_id" invisible="1"/>
+              <field name="location_dest_id" invisible="1"/>
+              <field name="create_date" invisible="1"/>
+              <field name="state"/>
+            </tree>
+          </xpath>
+          <xpath expr="//page[@name='purchase_delivery_invoice']" position="attributes">
+            <attribute name="string">Drop Ship &amp; Terms</attribute>
+          </xpath>
+          <xpath expr="//field[@name='date_planned']" position="attributes">
+            <attribute name="attrs">{"readonly": [("id","=",1)]}</attribute>
+            <attribute name="widget">date</attribute>
+          </xpath>
+          <xpath expr="//field[@name='invoice_status']" position="attributes">
+            <attribute name="attrs">{"readonly": [("id","=",1)]}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='is_shipped']" position="attributes">
+            <attribute name="string">Is Closed</attribute>
+          </xpath>
+        </field>
+    </record>
+
+    <record id="view_purchase_order_tree_inherit_studio_fields" model="ir.ui.view">
+        <field name="name">purchase.order.tree.inherit.studio.fields</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='amount_untaxed']" position="replace"/>
+          <xpath expr="//field[@name='company_id']" position="replace"/>
+          <xpath expr="//field[@name='date_order']" position="attributes">
+            <attribute name="widget">date</attribute>
+          </xpath>
+          <xpath expr="//field[@name='date_planned']" position="attributes">
+            <attribute name="string">Scheduled Ship Date</attribute>
+            <attribute name="widget">date</attribute>
+          </xpath>
+          <xpath expr="//field[@name='user_id']" position="after">
+            <field name="memo"/>
+          </xpath>
+          <xpath expr="//field[@name='invoice_status']" position="after">
+            <field name="analytic_tag_ids" widget="many2many_tags"/>
+            <field name="is_shipped" string="Is Closed"/>
+          </xpath>
+        </field>
+    </record>
+
+    <record id="view_purchase_order_filter_inherit_studio_fields" model="ir.ui.view">
+      <field name="name">purchase.order.filter.inherit.studio.fields</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="attributes">
+          <attribute name="string">PO #</attribute>
+        </xpath>
+        <xpath expr="//field[@name='name']" position="after">
+          <field name="memo"/>
+        </xpath>
+        <xpath expr="//field[@name='product_id']" position="after">
+          <field name="origin"/>
+        </xpath>
+      </field>
+    </record>
+</odoo>

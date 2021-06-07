@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="studio_crm_form_view" model="ir.ui.view">
+        <field name="name">studio.crm.form.view</field>
+        <field name="model">studio.crm</field>
+        <field name="arch" type="xml">
+          <form>
+            <sheet string="CRM">
+              <div class="oe_title">
+                <h1>
+                  <field name="name" required="1"/>
+                </h1>
+              </div>
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+    <record id="studio_crm_tree_view" model="ir.ui.view">
+        <field name="name">studio.crm.tree.view</field>
+        <field name="model">studio.crm</field>
+        <field name="arch" type="xml">
+          <tree string="CRM">
+            <field name="name" modifiers="{}"/>
+          </tree>
+      </field>
+    </record>
+</odoo>

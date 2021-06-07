@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_studio_crm,studio.crm,model_studio_crm,,1,1,1,1
+
+access_studio_bids,studio.bids,model_studio_bids,,1,1,1,1
+
+access_studio_mrp_workorder_stage,studio.mrp.workorder.stage,model_studio_mrp_workorder_stage,,1,1,1,1
+
+access_studio_project_project_stage,studio.project.project.stage,model_studio_project_project_stage,,1,1,1,1

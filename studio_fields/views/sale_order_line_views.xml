@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_line_form_inherit_studio_fields" model="ir.ui.view">
+        <field name="name">sale.order.line.form.readonly.inherit.studio.fields</field>
+        <field name="model">sale.order.line</field>
+        <field name="inherit_id" ref="sale.sale_order_line_view_form_readonly"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_updatable']" position="after">
+                <field name="part_number"/>
+                <field name="internal_reference"/>
+                <field name="is_parts_order" invisible="1"/>
+                <field name="sales_description"/>
+                <field name="part_number_1"/>
+                <field name="opening_number"/>
+                <field name="total"/>
+                <field name="notes"/>
+                <field name="serial_number"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sale_order_line_tree_inherit_studio_fields" model="ir.ui.view">
+      <field name="name">sale.order.line.tree.inherit.studio.fields</field>
+      <field name="model">sale.order.line</field>
+      <field name="inherit_id" ref="sale.view_order_line_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='order_id']" position="before">
+          <field name="create_date"/>
+          <field name="state"/>
+          <field name="id"/>
+        </xpath>
+        <xpath expr="//field[@name='name']" position="after">
+          <field name="opening_number"/>
+        </xpath>
+        <xpath expr="//field[@name='salesman_id']" position="replace"/>
+        <xpath expr="//field[@name='product_uom']" position="replace"/>
+      </field>
+    </record>
+</odoo>

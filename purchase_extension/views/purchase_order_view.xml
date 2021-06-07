@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+	<record id="inherit_purchase_order_search" model="ir.ui.view">
+        <field name="name">inherit.purchase.order.search</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group//filter[@name='order_date']" position="after">
+	            <filter string="Mail Status" name="mail_sent" domain="[]" context="{'group_by': 'mail_status'}"/>
+            </xpath>
+        </field>
+    </record>
+	
+	<record id="inherit_purchase_order_view_tree" model="ir.ui.view">
+        <field name="name">inherit.purchase.order.view.tree</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+	            <field name="mail_status"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

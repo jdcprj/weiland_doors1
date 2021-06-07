@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mrp_bom_line_form_inherit_studio_fields" model="ir.ui.view">
+        <field name="name">mrp.bom.line.form.inherit.studio.fields</field>
+        <field name="model">mrp.bom.line</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_line_view_form"/>
+        <field name="arch" type="xml">
+        	<xpath expr="//field[@name='product_id']" position="before">
+            <field name="parent_product_tmpl_id"/>
+          </xpath>
+          <xpath expr="//field[@name='product_id']" position="after">
+            <field name="bom_reference" string="BoM Reference"/>
+          </xpath>
+          <xpath expr="//field[@name='operation_id']" position="after">
+            <field name="bom_product_template_attribute_value_ids"/>
+          </xpath>
+        </field>
+    </record>
+
+    <record id="mrp_bom_line_tree_view" model="ir.ui.view">
+        <field name="name">mrp.bom.line.tree</field>
+        <field name="model">mrp.bom.line</field>
+        <field name="arch" type="xml">
+            <tree string="Bill of Material Line">
+              <field name="routing_id"/>
+              <field name="sequence"/>
+              <field name="bom_id"/>
+              <field name="product_id" on_change="1" can_create="true" can_write="true" modifiers="{'required': true}"/>
+              <field name="product_qty"/>
+              <field name="product_uom_id"/>
+              <field name="bom_product_template_attribute_value_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="mrp_bom_line_search_view" model="ir.ui.view">
+        <field name="name">mrp.bom.line.search</field>
+        <field name="model">mrp.bom.line</field>
+        <field name="arch" type="xml">
+            <search string="Bill of Material Line">
+              <field name="bom_id"/>
+              <field name="product_id" on_change="1" can_create="true" can_write="true" modifiers="{'required': true}"/>
+              <field name="bom_reference"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

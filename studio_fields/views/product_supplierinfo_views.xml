@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_supplierinfo_tree_inherit_studio_fields" model="ir.ui.view">
+      <field name="name">product.supplierinfo.tree.inherit.studio.fields</field>
+      <field name="model">product.supplierinfo</field>
+      <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='product_tmpl_id']" position="attributes">
+          <attribute name="invisible"/>
+          <attribute name="attrs">{}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='purchase_requisition_id']" position="replace">
+          <field name="product_id"/>
+        </xpath>
+        <xpath expr="//field[@name='product_tmpl_id']" position="after">
+          <field name="purchase_requisition_id" string="Blanket Order"/>
+        </xpath>
+        <xpath expr="//field[@name='min_qty']" position="attributes">
+          <attribute name="string">Minimal Quantity</attribute>
+        </xpath>
+      </field>
+    </record>
+</odoo>

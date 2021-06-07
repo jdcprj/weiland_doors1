@@ -1,0 +1,25 @@
+<odoo>
+
+    <record id="add_parent_account_field_coa_form" model="ir.ui.view">
+        <field name="name">Add Parent account in Accounts form view</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_form"/>
+        <field name="arch" type="xml">
+            <field name="user_type_id" position="after">
+                <field name="parent_id" domain="[('internal_type','=','view')]" attrs="{'invisible': [('internal_type','=','view')]}"/>
+            </field>
+        </field>
+    </record>
+
+
+    <record id="add_parent_account_group_coa_list" model="ir.ui.view">
+        <field name="name">Add Group by Parent account in List view</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_search"/>
+        <field name="arch" type="xml">
+            <filter name="accounttype" position="after">
+                <filter string="Parent Account" name="parentaccount" domain="" context="{'group_by':'parent_id'}"/>
+            </filter>
+        </field>
+    </record>
+</odoo>

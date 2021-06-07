@@ -1,0 +1,34 @@
+id,name,sequence,note
+__export__.account_payment_term_53_9dd93282,Net 30,1,
+__export__.account_payment_term_55_ac4aa698,Net 42,2,
+__export__.account_payment_term_33_8fa07056,0.50% 10 / Net 30,10,
+__export__.account_payment_term_34_e0bcfcb1,1% 15 / Net 30,10,
+__export__.account_payment_term_35_1ebb7ff1,1% 10 / Net 30,10,
+__export__.account_payment_term_36_8d8bc99d,1% 10th fol / net30,10,
+__export__.account_payment_term_37_1d98fda8,1% 25th / Net 26th.,10,
+__export__.account_payment_term_38_a59828e5,1% 10 / Net 11,10,
+__export__.account_payment_term_39_848a0032,2 % 10 / Net 20th,10,
+__export__.account_payment_term_40_b1fe973e,2% 10 / Net 30,10,
+__export__.account_payment_term_41_6a1ccd2a,2% 15 / Net 30,10,
+__export__.account_payment_term_42_273356e6,3E,10,
+__export__.account_payment_term_43_806e96fa,4% 10 / Net 30,10,
+__export__.account_payment_term_44_0239c550,5% 0 / Net 10,10,
+__export__.account_payment_term_45_e696d7c8,5% 0 / Net EOM,10,
+__export__.account_payment_term_46_ac18b73a,Due upon receipt,10,
+__export__.account_payment_term_47_5038ec69,Net 10,10,
+__export__.account_payment_term_48_0c330d14,Net 10th of Month,10,
+__export__.account_payment_term_49_b812f433,Net 15,10,
+__export__.account_payment_term_50_6c6b1ad8,Net 15th of month,10,
+__export__.account_payment_term_51_2f29d678,Net 20,10,
+__export__.account_payment_term_52_ca977a3d,Net 21,10,
+__export__.account_payment_term_54_0d1bbba8,Net 34,10,
+__export__.account_payment_term_56_f357bd4d,Net 45,10,
+__export__.account_payment_term_57_4f8446f6,Net 60,10,
+__export__.account_payment_term_58_50fbda18,Prepaid,10,
+__export__.account_payment_term_59_7863341a,Credit Card,10,
+account.account_payment_term_immediate,Immediate Payment,10,Payment terms: Immediate Payment
+account.account_payment_term_15days,15 Days,10,Payment terms: 15 Days
+account.account_payment_term_net,30 Net Days,10,Payment terms: 30 Net Days
+account.account_payment_term_45days,45 Days,10,Payment terms: 45 Days
+account.account_payment_term_2months,2 Months,10,Payment terms: 2 Months
+__export__.account_payment_term_66_bfc6e80f,ACH,10,

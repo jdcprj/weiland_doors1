@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="studio_project_project_stage_form_view" model="ir.ui.view">
+        <field name="name">studio.project.project.stage.form.view</field>
+        <field name="model">studio.project.project.stage</field>
+        <field name="arch" type="xml">
+          <form>
+            <sheet string="Project stages">
+              <div class="oe_title">
+                <h1>
+                  <field name="name" required="1"/>
+                </h1>
+              </div>
+            </sheet>
+          </form>
+        </field>
+    </record>
+</odoo>

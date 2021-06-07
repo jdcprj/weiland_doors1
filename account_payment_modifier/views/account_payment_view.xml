@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_account_payment_form_inherit_payment_for_emp" model="ir.ui.view">
+                <field name="name">view.account.payment.form.inherit.payment.for.emp</field>
+                <field name="model">account.payment</field>
+                <field name="inherit_id" ref="account.view_account_payment_form"/>
+                <field name="arch" type="xml">
+                    <field name="partner_id" position="before">
+                        <field name="account_id"
+                               attrs="{'invisible': [('partner_type', '!=', 'employee')]}"/>
+<!--                               domain="[('user_type_id.name', 'in', ('Expenses','Depreciation','Cost of Revenue'))]"-->
+                        <field name="employee_id"
+                               attrs="{'invisible': [('partner_type', '!=', 'employee')]}"/>
+                        <!--,'required': [('partner_type', '=', 'employee')]-->
+                    </field>
+                    <!--<field name="partner_id" position="attributes">
+                        <attribute name="attrs">{'required': [('state', '=', 'draft'), ('payment_type', 'in', ('inbound', 'outbound')),('partner_type','!=',
+                            'employee')], 'invisible': [('payment_type', 'not in', ('inbound', 'outbound')),('partner_type','=',
+                            'employee')]}"</attribute>
+                    </field>-->
+                    <xpath expr="//field[@name='partner_id']" position="attributes">
+                        <!--<attribute name="attrs">{'required': [('state', '=', 'draft'), ('payment_type', 'in',
+                            ('inbound', 'outbound')), ('partner_type','not in',
+                          ('employee'))], 'invisible': [('payment_type', 'not in', ('inbound',
+                            'outbound')),('partner_type','in',
+                            ('employee'))]}"
+                        </attribute>-->
+                        <attribute name="attrs">{'required': [('state', '=', 'draft'), ('payment_type', 'in',
+                            ('inbound', 'outbound')),('partner_type','!=',
+                          'employee')], 'invisible': ['|', ('payment_type', 'not in', ('inbound',
+                            'outbound')), ('partner_type','=',
+                            'employee')]}</attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='payment_type']" position="attributes">
+                        <attribute name="attrs">{'readonly': [('partner_type','=',
+                            'employee')]}</attribute>
+                    </xpath>
+
+                </field>
+        </record>
+
+        <menuitem id="menu_finance_employee" name="Employees" parent="account_accountant.menu_accounting" sequence="4"/>
+
+        <record id="view_payment_employee_search" model="ir.ui.view">
+            <field name="name">account.payment.employee.search</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='outbound_filter']" position="after">
+                    <filter string="Employee Payments" name="employee_filter" domain="[('partner_type', '=', 'employee')]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_account_payments_payable_emp" model="ir.actions.act_window">
+            <field name="name">Payments</field>
+            <field name="res_model">account.payment</field>
+            <field name="view_mode">tree,kanban,form,graph</field>
+            <field name="context">{
+                'default_payment_type': 'outbound',
+                'default_partner_type': 'employee',
+                'search_default_employee_filter': 1,
+            }</field>
+            <field name="view_id" ref="account.view_account_supplier_payment_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                  Register a payment
+                </p><p>
+                  Payments are used to register liquidity movements. You can process those payments by your own means or by using installed facilities.
+                </p>
+            </field>
+        </record>
+        <menuitem action="action_account_payments_payable_emp" id="menu_action_account_payments_emp" parent="menu_finance_employee" sequence="10"/>
+    </data>
+</odoo>

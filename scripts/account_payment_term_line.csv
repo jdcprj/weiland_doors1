@@ -1,0 +1,46 @@
+id,day_of_the_month,days,option,sequence,value,value_amount,payment_id
+__export__.account_payment_term_line_84_8ccd0138,0,0,day(s) after the invoice date,9,Balance,0,account.account_payment_term_immediate
+__export__.account_payment_term_line_91_eabbe578,0,0,day(s) after the invoice date,9,Balance,0,__export__.account_payment_term_66_bfc6e80f
+__export__.account_payment_term_line_45_47b0093f,0,10,day(s) after the invoice date,10,Percent,99.5,__export__.account_payment_term_33_8fa07056
+__export__.account_payment_term_line_46_2ea75978,0,30,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_33_8fa07056
+__export__.account_payment_term_line_47_b62ee271,0,15,day(s) after the invoice date,10,Percent,99,__export__.account_payment_term_34_e0bcfcb1
+__export__.account_payment_term_line_48_5c25d0c7,0,30,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_34_e0bcfcb1
+__export__.account_payment_term_line_49_f678f545,0,10,day(s) after the invoice date,10,Percent,99,__export__.account_payment_term_35_1ebb7ff1
+__export__.account_payment_term_line_50_712e9517,0,30,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_35_1ebb7ff1
+__export__.account_payment_term_line_51_0e839b46,10,10,of the following month,10,Percent,99,__export__.account_payment_term_36_8d8bc99d
+__export__.account_payment_term_line_52_f67d5d65,0,30,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_36_8d8bc99d
+__export__.account_payment_term_line_53_c8642e7f,25,25,of the current month,10,Percent,99,__export__.account_payment_term_37_1d98fda8
+__export__.account_payment_term_line_54_67f83e3c,0,26,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_37_1d98fda8
+__export__.account_payment_term_line_55_563fac55,0,10,day(s) after the invoice date,10,Percent,99,__export__.account_payment_term_38_a59828e5
+__export__.account_payment_term_line_56_50695931,0,11,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_38_a59828e5
+__export__.account_payment_term_line_57_0018fce6,0,10,day(s) after the invoice date,10,Percent,98,__export__.account_payment_term_39_848a0032
+__export__.account_payment_term_line_58_dcf24756,20,20,of the current month,10,Balance,0,__export__.account_payment_term_39_848a0032
+__export__.account_payment_term_line_59_44c12cb6,0,10,day(s) after the invoice date,10,Percent,98,__export__.account_payment_term_40_b1fe973e
+__export__.account_payment_term_line_60_7115eb98,0,30,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_40_b1fe973e
+__export__.account_payment_term_line_61_e04a5208,0,15,day(s) after the invoice date,10,Percent,98,__export__.account_payment_term_41_6a1ccd2a
+__export__.account_payment_term_line_62_8fa25adf,0,30,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_41_6a1ccd2a
+__export__.account_payment_term_line_63_2416467c,10,10,of the current month,10,Balance,0,__export__.account_payment_term_42_273356e6
+__export__.account_payment_term_line_64_913f9f09,0,10,day(s) after the invoice date,10,Percent,96,__export__.account_payment_term_43_806e96fa
+__export__.account_payment_term_line_65_daecab9b,0,30,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_43_806e96fa
+__export__.account_payment_term_line_66_e4816cb0,0,0,day(s) after the invoice date,10,Percent,95,__export__.account_payment_term_44_0239c550
+__export__.account_payment_term_line_67_b8223c62,0,10,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_44_0239c550
+__export__.account_payment_term_line_68_3cf0f0f7,0,0,day(s) after the invoice date,10,Percent,95,__export__.account_payment_term_45_e696d7c8
+__export__.account_payment_term_line_69_0b2b14f9,31,31,of the current month,10,Balance,0,__export__.account_payment_term_45_e696d7c8
+__export__.account_payment_term_line_70_b4eb1cc6,0,0,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_46_ac18b73a
+__export__.account_payment_term_line_71_ac14625b,0,10,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_47_5038ec69
+__export__.account_payment_term_line_72_cc8827ca,10,10,of the following month,10,Balance,0,__export__.account_payment_term_48_0c330d14
+__export__.account_payment_term_line_73_26d78beb,0,15,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_49_b812f433
+__export__.account_payment_term_line_74_32b59c85,15,15,of the following month,10,Balance,0,__export__.account_payment_term_50_6c6b1ad8
+__export__.account_payment_term_line_75_e64e477c,0,20,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_51_2f29d678
+__export__.account_payment_term_line_76_a5264f59,0,21,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_52_ca977a3d
+__export__.account_payment_term_line_77_5df92402,0,30,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_53_9dd93282
+__export__.account_payment_term_line_78_72caa589,0,34,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_54_0d1bbba8
+__export__.account_payment_term_line_79_ec72df94,0,42,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_55_ac4aa698
+__export__.account_payment_term_line_80_5477a314,0,45,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_56_f357bd4d
+__export__.account_payment_term_line_81_021ce46c,0,60,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_57_4f8446f6
+__export__.account_payment_term_line_82_2d4a40b9,0,0,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_58_50fbda18
+__export__.account_payment_term_line_83_6e9465f0,0,0,day(s) after the invoice date,10,Balance,0,__export__.account_payment_term_59_7863341a
+__export__.account_payment_term_line_85_e467db3e,0,15,day(s) after the invoice date,500,Balance,0,account.account_payment_term_15days
+__export__.account_payment_term_line_86_e0119621,0,30,day(s) after the invoice date,500,Balance,0,account.account_payment_term_net
+__export__.account_payment_term_line_87_7dc395af,0,45,day(s) after the invoice date,500,Balance,0,account.account_payment_term_45days
+__export__.account_payment_term_line_88_6e2e3036,0,60,day(s) after the invoice date,500,Balance,0,account.account_payment_term_2months

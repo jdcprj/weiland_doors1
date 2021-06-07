@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="studio_sale_order_report"
+            string="Sales Quote"
+            model="sale.order" 
+            report_type="qweb-pdf"
+            file="studio_fields.report_saleorder_copy_3" 
+            name="studio_fields.report_saleorder_copy_3"
+        />
+
+        <!-- <report 
+            id="studio_crm_opportunity_report"
+            string="Project Detail Report"
+            model="crm.lead" 
+            report_type="qweb-pdf"
+            file="studio_fields.report_crm" 
+            name="studio_fields.report_crm"
+        /> -->
+    </data>
+</odoo>

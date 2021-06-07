@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_form_inherit_studio_fields" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.studio.fields</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_view_invoice']" position="after">
+              <button class="oe_stat_button" icon="fa-database" type="action" name="manufacturing_count">
+                <field name="mrp_count" widget="statinfo"/>
+              </button>
+            </xpath>
+            <xpath expr="//div[2]" position="after">
+                <group>
+                    <group>
+                      <field name="is_a_parts_order"/>
+                      <field name="awaiting_approval" attrs="{'invisible':[('is_a_parts_order', '=', True)]}"/>
+                      <field name="customer_overdue_1" string="Customer Overdue" attrs="{'invisible': [('customer_overdue_1','=',0)]}"/>
+                      <field name="is_approved" attrs="{'invisible':[('state', '=', 'sale')]}"/>
+                    </group>
+                    <group>
+                        <field name="customer_reference"/>
+                        <field name="job_name"/>
+                        <!-- <field name="project_name"/> -->
+                        <field name="is_early_ship"/>
+                        <field name="is_payment_term" invisible="1"/>
+                        <field name="early_invoice" string="Early Invoice Done" attrs="{'invisible': [('is_payment_term','=',True)]}"/>
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='partner_shipping_id']" position="after">
+              <field name="delivery_method"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+              <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='validity_date']" position="attributes">
+                <attribute name="string">Validity</attribute>
+            </xpath>
+            <xpath expr="//field[@name='validity_date']" position="before">
+                <field name="commitment_date" string="High end lead time"/>
+                <field name="target_completion_date"/>
+                <field name="on_site_date"/>
+            </xpath>
+            <xpath expr="//field[@name='report_grids']" position="replace"/>
+            <xpath expr="//field[@name='fiscal_position_id']" position="before">
+                <field name="date_order"/>
+            </xpath>
+            <!-- <xpath expr="//field[@name='fiscal_position_id']" position="after">
+                <field name="invoice_monetary"/>
+            </xpath> -->
+            <xpath expr="//field[@name='user_id']" position="before">
+              <field name="account_exec_crm_so" string="Account Exec crm_so"  force_save="True" readonly="1"/>
+            </xpath>
+            <xpath expr="//page/field[@name='order_line']/tree" position="attributes">
+              <attribute name="editable"/>
+            </xpath>
+            <xpath expr="//sheet/notebook/page[@name='order_lines']/field/form/group/group[1]" position="inside">
+              <field name="opening_number"/>
+              <field name="serial_number"/>
+            </xpath>
+            <xpath expr="//sheet/notebook/page[@name='order_lines']/field/form/field[@name='name']" position="attributes">
+              <attribute name="attrs">{'readonly': [('product_id', '=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//page/field[@name='order_line']/tree/field[@name='name']" position="after">
+              <field name="opening_number"/>
+            </xpath>
+
+            <xpath expr="//page[@name='other_information']" position="after">
+              <page name="project_milestone" string="Project Milestones">
+                <group>
+                  <group name="studio_left">
+                    <field name="initial_shop_drawings_complete" string="Initial Shop Drawings Complete" widget="date"/>
+                    <field name="initial_shops_sent" string="Initial Shops Sent"/>
+                    <field name="if_needed_revised_shops_sent" string="If needed, revised shops sent"/>
+                    <field name="final_shops_approved" string="Final Shops Approved"/>
+                  </group>
+                  <group name="studio_right">
+                    <field name="lead_time" string="Lead time"/>
+                  </group>
+                </group>
+              </page>
+              <page name="shipping_information" string="Shipping Information">
+                <group>
+                  <group string="Freight by Phases">
+                    <field name="freight_company_1" string="Freight Company 1" help="company and tracking #" placeholder="company and tracking #"/>
+                    <field name="freight_company_2" string="Freight Company 2"/>
+                    <field name="freight_company_3" string="Freight Company 3"/>
+                    <field name="freight_company_4" string="Freight Company 4"/>
+                  </group>
+                  <group string="Shipping Dates by Phases">
+                    <field name="ship_date_1" string="Ship date 1"/>
+                    <field name="ship_date_2" string="Ship Date 2"/>
+                    <field name="ship_date_3" string="Ship Date 3"/>
+                    <field name="ship_date_4" string="Ship Date 4"/>
+                  </group>
+                </group>
+              </page>
+              <page string="Due Invoices" name="due_invoices">
+                 <field name="due_invoice_ids">
+                    <tree editable="bottom">
+                      <field name="name"/>
+                      <field name="invoice_date_due"/>
+                      <field name="amount_total_signed" string="Total"/>
+                      <field name="amount_residual_signed" string="Amount due"/>
+                      <field name="state" invisible="1"/>
+                    </tree>
+                  </field>
+                   <group name="note_group" col="6">
+                    <group colspan="4">
+                        <field name="note" nolabel="1" placeholder="Terms and conditions..."/>
+                    </group>
+                    <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                        <field name="total_due" widget="monetary" options="{'currency_field': 'currency_id'}" sum="Total"/>
+                        <field name="total_overdue" widget="monetary" options="{'currency_field': 'currency_id'}" sum="Total"/>
+                    </group>
+                    <div class="oe_clear"/>
+                </group>
+              </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sale_order_tree_quotation_inherit_studio_fields" model="ir.ui.view">
+        <field name="name">sale.order.tree.quotation.inherit.studio.fields</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='expected_date']" position="replace"/>
+            <xpath expr="//field[@name='commitment_date']" position="replace"/>
+            <xpath expr="//field[@name='partner_id']" position="after">
+              <field name="job_name"/>
+              <field name="customer_reference"/>
+              <field name="awaiting_approval"/>
+              <field name="is_approved"/>
+              <field name="expected_ship_date"/>
+              <field name="partner_shipping_id"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+              <attribute name="invisible">1</attribute>
+              <attribute name="string">Salespersonold</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sale_order_tree_inherit_studio_fields" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit.studio.fields</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+        <xpath expr="//field[@name='user_id']" position="replace">
+          <field name="job_name"/>
+        </xpath>
+        <xpath expr="//tree[1]/field[@name='name']" position="after">
+          <field name="customer_reference"/>
+        </xpath>
+        <xpath expr="//field[@name='date_order']" position="after">
+          <field name="target_completion_date"/>
+        </xpath>
+        <xpath expr="//field[@name='commitment_date']" position="attributes">
+          <attribute name="groups"/>
+          <attribute name="attrs">{"readonly": [("state","not in","cancel")]}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='expected_date']" position="attributes">
+          <attribute name="widget">date</attribute>
+        </xpath>
+        <!-- <xpath expr="//field[@name='amount_total']" position="after">
+          <field name="move_id" string="Left to invoice" domain="[('invoice.residual_signed','!=',False)]"/>
+        </xpath> -->
+
+      </field>
+    </record>
+</odoo>

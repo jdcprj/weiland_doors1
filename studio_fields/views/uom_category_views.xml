@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_uom_category_tree_inherit_studio_fields" model="ir.ui.view">
+      <field name="name">uom.category.tree.inherit.studio.fields</field>
+      <field name="model">uom.category</field>
+      <field name="inherit_id" ref="uom.product_uom_categ_tree_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='measure_type']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+      </field>
+    </record>
+</odoo>

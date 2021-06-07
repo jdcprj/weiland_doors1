@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mrp_workcenter_tree_inherit_studio_fields" model="ir.ui.view">
+      <field name="name">mrp.workcenter.tree.inherit.studio.fields</field>
+      <field name="model">mrp.workcenter</field>
+      <field name="inherit_id" ref="mrp.mrp_workcenter_tree_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='company_id']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='company_id']" position="after">
+          <field name="workorder_count"/>
+          <field name="costs_hour"/>
+          <field name="capacity"/>
+        </xpath>
+      </field>
+    </record>
+</odoo>
