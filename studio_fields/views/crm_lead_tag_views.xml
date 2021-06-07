@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_crm_lead_tag_tree_inherit_studio_fields" model="ir.ui.view">
+        <field name="name">crm.lead.tag.tree.inherit.studio.fields</field>
+        <field name="model">crm.lead.tag</field>
+        <field name="inherit_id" ref="crm.crm_lead_tag_tree"/>
+        <field name="arch" type="xml">
+        	<xpath expr="//field[@name='color']" position="after">
+              <field name="priority" widget="priority"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

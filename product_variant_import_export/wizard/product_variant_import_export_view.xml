@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--wiz product variant import form view-->
+    <record id="wiz_product_import_export_form_view" model="ir.ui.view">
+        <field name="name">wiz.product.import.export.form.view</field>
+        <field name="model">wiz.product.variant.import.export</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="process" widget="radio"/>
+                            <field name="file_to_import" filename="file_name"
+                                   style="width: 200px;" attrs="{'invisible': [('process', '=', 'export')], 'required': [('process', '!=', 'export')]}"/>
+                            <field name="file_name" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="perform_import_export_process" string="Confirm" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    
+    <!--wiz product variant import Action-->
+    <record id="wiz_product_import_export_action" model="ir.actions.act_window">
+        <field name="name">Import/Export Product</field>
+        <field name="res_model">wiz.product.variant.import.export</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    
+    <!-- wiz product variant import Menuitem -->
+    <menuitem id="wiz_invoice_cost_report_menu" name="Import/Export Product"
+              parent="stock.menu_stock_warehouse_mgmt"
+              action="wiz_product_import_export_action" sequence="100"/>
+
+</odoo>

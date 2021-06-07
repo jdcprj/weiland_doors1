@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <function name="write" model="ir.model.data">
+          <function name="search" model="ir.model.data">
+            <value eval="[('module', '=', 'sale'), ('name', '=', 'email_template_edi_sale')]"/>
+          </function>
+          <value eval="{'noupdate': False}"/>
+        </function>
+
+        <record id="sale.email_template_edi_sale" model="mail.template">
+            <field name="report_template" ref="studio_fields.studio_sale_quote_report"/>
+            <field name="report_name">Sale Order Quote</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"></field>
+        </record>
+
+        <function name="write" model="ir.model.data">
+          <function name="search" model="ir.model.data">
+            <value eval="[('module', '=', 'sale'), ('name', '=', 'email_template_edi_sale')]"/>
+          </function>
+          <value eval="{'noupdate': True}"/>
+        </function>
+
+    </data>
+</odoo>

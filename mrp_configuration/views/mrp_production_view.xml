@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<record id="mrp_production_form_view_inherit" model="ir.ui.view">
+	        <field name="name">mrp.production.form</field>
+	        <field name="model">mrp.production</field>
+	        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+	        <field name="arch" type="xml">
+	        	<xpath expr="//field[@name='company_id']" position="after">
+	        		<field name="mrp_config_id" options="{'no_create': True, 'no_edit': True}"/>
+			        <field name="drawing_name" invisible="1"/>
+					<field name="drawing" filename="drawing_name"/>
+	        	</xpath>
+	        	<xpath expr="//notebook" position="inside">
+	        		<page string="MRP Cost Detail" attrs="{'invisible': [('mrp_config_id', '=', False)]}">
+                        <group>
+                            <group>
+                                <field name="so_line_id" options="{'no_create': True}"/>
+                                <field name="cost_price"/>
+                                <field name="sale_price"/>
+                            </group>
+	                        <group>
+		                        <field name="partner_id" options="{'no_create_edit': True}"/>
+                                <field name="partner_shipping_id" options="{'no_create_edit': True}"/>
+                                <field name="description"/>
+	                        </group>
+                        </group>
+                    </page>
+	        	</xpath>
+	        	<xpath expr="//div[@name='button_box']" position="inside">
+	        		<button name="display_parent_mrp_production" type="object" class="oe_stat_button" icon="fa-pencil-square-o" attrs="{'invisible': [('mrp_production_count', '=', 0)]}">
+                        <field name="mrp_production_count" widget="statinfo" string="Parent MRP Production"/>
+	        		</button>
+	        	</xpath>
+	        </field>
+	    </record>
+
+
+	    
+	    <record id="mrp_production_tree_view_view_inherit" model="ir.ui.view">
+	        <field name="name">mrp.production.tree</field>
+	        <field name="model">mrp.production</field>
+	        <field name="inherit_id" ref="mrp.mrp_production_tree_view"/>
+	        <field name="arch" type="xml">
+	        	<xpath expr="//field[@name='reservation_state']" position="before">
+	        		<field name="so_line_id"/>
+	        	</xpath>
+	        </field>
+	    </record>
+
+
+
+    </data>
+</odoo>

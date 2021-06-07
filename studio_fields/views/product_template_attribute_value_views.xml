@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_template_attribute_value_tree_inherit_studio_fields" model="ir.ui.view">
+      <field name="name">product.template.attribute.value.tree.inherit.studio.fields</field>
+      <field name="model">product.template.attribute.value</field>
+      <field name="inherit_id" ref="product.product_template_attribute_value_view_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//tree[1]" position="attributes">
+          <attribute name="editable">top</attribute>
+        </xpath>
+        <xpath expr="//field[@name='attribute_id']" position="before">
+          <field name="product_tmpl_id"/>
+        </xpath>
+      </field>
+    </record>
+</odoo>

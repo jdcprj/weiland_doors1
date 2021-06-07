@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_bank_statement_tree_inherit_studio_fields" model="ir.ui.view">
+      <field name="name">account.bank.statement.tree.inherit.studio.fields</field>
+      <field name="model">account.bank.statement</field>
+      <field name="inherit_id" ref="account.view_bank_statement_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='journal_id']" position="after">
+          <field name="total_entry_encoding"/>
+        </xpath>
+      </field>
+    </record>
+</odoo>

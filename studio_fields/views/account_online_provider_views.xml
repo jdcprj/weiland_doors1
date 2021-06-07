@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_online_provider_tree_inherit_studio_fields" model="ir.ui.view">
+      <field name="name">account.online.provider.tree.inherit.studio.fields</field>
+      <field name="model">account.online.provider</field>
+      <field name="inherit_id" ref="account_online_sync.online_provider_account_list_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//tree[1]/field[@name='name']" position="after">
+          <field name="account_online_journal_ids"/>
+        </xpath>
+      </field>
+    </record>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            string="MRP BOM Config"
+            id="action_report_purchase_order" 
+            model="mrp.bom.configuration"
+            report_type="qweb-pdf"
+            name="mrp_configuration.mrp_bom_config_report_template"
+            file="mrp_configuration.mrp_bom_config_report_template"
+        />
+
+    </data>
+</odoo>

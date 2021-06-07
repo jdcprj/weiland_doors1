@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_import_bom_order" model="ir.ui.view">
+        <field name="name">view.import.bom.order</field>
+        <field name="model">import.bom.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="file_to_import" required="True" filename="file_name" style="width: 200px;"/>
+                    <field name="file_name" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="import_data" string="Import" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_import_bom_order" model="ir.actions.act_window">
+        <field name="name">Import BOM Order</field>
+        <field name="res_model">import.bom.order</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    
+    <menuitem id="import_bom_order_menu" name="Import BOM Order"
+              parent="mrp.menu_mrp_bom"
+              action="action_import_bom_order" sequence="100"/>
+</odoo>

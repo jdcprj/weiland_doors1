@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_employee_job_position" model="ir.actions.act_window">
+        <field name="name">Job Position</field>
+        <field name="res_model">hr.job</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_studio_bids" model="ir.actions.act_window">
+        <field name="name">Bids</field>
+        <field name="res_model">studio.bids</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_template_attribute_value" model="ir.actions.act_window">
+        <field name="name">Attribute Value Extra Price</field>
+        <field name="res_model">product.template.attribute.value</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_batch_process" model="ir.actions.act_window">
+        <field name="name">Batch Process</field>
+        <field name="res_model">stock.picking.batch</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_stock_move_mrp" model="ir.actions.act_window">
+        <field name="name">Stock Move</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_bom_lines_mrp" model="ir.actions.act_window">
+        <field name="name">BOM Lines</field>
+        <field name="res_model">mrp.bom.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_sale_order_production" model="ir.actions.act_window">
+        <field name="name">In Production Orders</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_sale_order_waiting" model="ir.actions.act_window">
+        <field name="name">Orders waiting for Approval</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_sale_order_invoiced" model="ir.actions.act_window">
+        <field name="name">Products Invoiced</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_supplier_info" model="ir.actions.act_window">
+        <field name="name">Vendor List</field>
+        <field name="res_model">product.supplierinfo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_attribute_value" model="ir.actions.act_window">
+        <field name="name">Product Attribute values</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_attribute_line" model="ir.actions.act_window">
+        <field name="name">Product template Attribute line</field>
+        <field name="res_model">product.template.attribute.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_product_attribute_line" model="ir.actions.act_window">
+        <field name="name">Product Attributes Line</field>
+        <field name="res_model">product.attribute</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_sale_order_line_open" model="ir.actions.act_window">
+        <field name="name">Open Sale Order Lines</field>
+        <field name="res_model">sale.order.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

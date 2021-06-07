@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mrp_configuration_form_view" model="ir.ui.view">
+            <field name="name">mrp.bom.configuration.form</field>
+            <field name="model">mrp.bom.configuration</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="so_line_id"/>
+                            <field name="partner_id"/>
+                            <field name="total_sale"/>
+                            <field name="total_cost"/>
+                            <field name="order_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <p style="text-align: left;color: red;font-size: 18px;">Please configure product attribute for bill of components.</p>
+                        </group>    
+                        <notebook>
+                            <page name="component_lines" string="Component Lines">
+                                <field name="bom_product_ids">
+                                    <tree>
+                                        <!-- editable="top" -->
+                                        <field name="product_tmpl_id" domain="[('additional_ok','=', True)]"/>
+                                        <field name="product_variant_id"/>
+                                        <field name="parent_id"/>
+                                        <field name="one_parent_id" invisible="1"/>
+                                        <field name="qty"/>
+                                        <field name="sale_price"/>
+                                        <field name="cost_price"/>
+                                        <field name="total_qty"/>
+                                        <field name="total_sales"/>
+                                        <field name="total_costs"/>  
+                                    </tree>
+                                     <form>
+                                        <group>
+                                            <group>
+                                                <field name="product_tmpl_id" domain="[('additional_ok','=', True)]"/>
+                                                <field name="parent_id" domain="[('id','=', one_parent_id)]"/>
+                                                <field name="one_parent_id" invisible="1"/>
+                                                <field name="qty"/>
+                                                <field name="sale_price"/>
+                                                <field name="cost_price"/>
+                                            </group>
+                                            <group>
+                                                <field name="product_variant_id"/>
+                                                <field name="total_qty"/>
+                                                <field name="total_sales"/>
+                                                <field name="total_costs"/>
+                                            </group>
+                                        </group>    
+                                        <div name="product_attribute_line_ids">
+                                            <label for="product_attribute_line_ids"/>
+                                            <field name="product_attribute_line_ids" widget="one2many">
+                                                <tree string="Variants" editable="bottom">
+                                                    <field name="mrp_config_lined_id" invisible="1"/>
+                                                    <field name="variant_tmpl_id" invisible="1"/>
+                                                    <field name="attribute_id"/>
+                                                    <field name="value_id" domain="[('attribute_id','=',attribute_id)]" options="{'no_create_edit': True}"/>
+                                                </tree>
+                                            </field>
+                                        </div>
+                                    </form>
+
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+         <record id="mrp_configuration_tree_view" model="ir.ui.view">
+            <field name="name">mrp.bom.configuration.tree</field>
+            <field name="model">mrp.bom.configuration</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="so_line_id"/>
+                    <field name="partner_id"/>
+                </tree>
+            </field>
+        </record>
+       
+        <record id="mrp_configuration_action" model="ir.actions.act_window">
+            <field name="name">MRP Configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mrp.bom.configuration</field>
+            <field name="target">current</field>
+        </record>
+    </data>
+</odoo>

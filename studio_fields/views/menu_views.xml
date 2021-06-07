@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Contact Menu -->
+        <!-- Industry -->
+        <menuitem id="res_partner_industry_menu_studio" name="Industry"
+        action="base.res_partner_industry_action" parent="contacts.menu_contacts"/>
+
+
+        <!-- Sale Menus -->
+        <!-- In Production Orders -->
+        <menuitem id="menu_action_sale_order_studio" name="In Production Orders" action="action_sale_order_production" parent="sale.sale_order_menu" sequence="2"/>
+
+        <!-- Orders waiting for Approval -->
+        <menuitem id="menu_action_sale_order_waiting" name="Orders waiting for Approval" action="action_sale_order_waiting" parent="sale.sale_order_menu" sequence="3"/>
+
+        <!-- Open Sale Order Line -->
+        <menuitem id="menu_action_open_sale_order_line" name="Open Sale Order Line" action="action_sale_order_line_open" parent="sale.sale_order_menu" sequence="4"/>
+
+        <!-- Sequence of Orders Menu -->
+        <record model="ir.ui.menu" id="sale.menu_sale_order">
+          <field name="sequence">5</field>
+        </record>
+
+        <!-- Sequence of Sale Team Menu -->
+        <record model="ir.ui.menu" id="sale.report_sales_team">
+          <field name="sequence">6</field>
+        </record>
+
+        <!-- Products Invoiced -->
+        <menuitem id="menu_action_sale_order_invoiced" name="Products Invoiced" action="action_sale_order_invoiced" parent="sale.sale_order_menu" sequence="7"/>
+
+        <!-- Sequence of Customer Menu -->
+        <record model="ir.ui.menu" id="sale.res_partner_menu">
+          <field name="sequence">8</field>
+        </record>
+
+        <!-- Batch Process -->
+        <menuitem id="menu_action_batch_process_view_sale" name="Batch Process" action="action_batch_process" parent="sale.sale_order_menu" sequence="9"/>
+
+        <!-- Name Only (Sale Order Line) -->
+        <menuitem id="menu_action_name_only_sale_order_line" name="Name Only" action="action_sale_order_line_open" parent="sale.menu_sales_config"/>
+
+        <!-- menu Attribute Values -->
+        <menuitem id="menu_action_attribute_values" name="Attribute Values" action="action_product_attribute_value" parent="sale.prod_config_main" sequence="2"/>
+
+        <!-- Sequence of Units of measure Menu -->
+        <record model="ir.ui.menu" id="sale.menu_product_uom_form_action">
+          <field name="sequence">3</field>
+        </record>
+
+        <!-- Sequence of Units of measure Categories Menu -->
+        <record model="ir.ui.menu" id="sale.menu_product_uom_form_action">
+          <field name="sequence">4</field>
+        </record>
+
+
+        <!-- Menus of Purchase Order -->
+        <!-- Vendor pricelist -->
+        <menuitem id="purchase.menu_product_pricelist_action2_purchase" name="Vendor Pricelist" action="product.product_supplierinfo_type_action" parent="purchase.menu_procurement_management" sequence="16"/>
+
+        <!-- Product -->
+        <menuitem id="purchase.menu_procurement_partner_contact_form" name="Products" action="purchase.product_normal_action_puchased" parent="purchase.menu_procurement_management" sequence="17"/>
+
+        <!-- Product Variant -->
+        <menuitem id="purchase.product_product_menu" name="Product Variants" action="purchase.product_product_action" parent="purchase.menu_procurement_management" sequence="18"/>
+
+        <!-- Menu Purchase control -->
+        <menuitem id="menu_purchase_control" name="Control" parent="purchase.menu_purchase_root" sequence="2"/>
+
+        <!-- Menu Batch processing -->
+        <menuitem id="menu_batch_processing" name="Batch Processing" action="stock_picking_batch.stock_picking_batch_action" parent="menu_purchase_control" sequence="1"/>
+
+        <!-- Menu Incoming Products -->
+        <menuitem id="menu_incoming_products" name="Incoming Products" action="stock.action_receipt_picking_move" parent="menu_purchase_control" sequence="2"/>
+
+        <!-- Menu Vendor Bills -->
+        <menuitem id="menu_vendor_bills" name="Vendor Bills" action="account.action_move_in_invoice_type" parent="menu_purchase_control" sequence="3"/>
+
+        <!-- Menus of Inventory -->
+        <!-- Vendor List -->
+        <menuitem id="menu_action_supplier_info" name="Vendor List" action="action_supplier_info" parent="stock.menu_stock_root"/>
+
+        <!-- Template Attribute Value -->
+        <menuitem id="menu_action_template_attribute_value_view" name="Product Value Map" action="action_template_attribute_value" parent="stock.menu_stock_root" sequence="11"/>
+
+        <!-- Product template Attribute line  -->
+        <menuitem id="menu_action_attribute_line" name="Product Attribute Map" action="action_attribute_line" parent="stock.menu_stock_root" sequence="12"/>
+
+        <!-- Product Attribute Value  -->
+        <menuitem id="menu_action_product_attribute_value" name="Attribute Value" action="action_product_attribute_value" parent="stock.menu_product_in_config_stock" sequence="5"/>
+
+        <!-- Attribute Value Extra Price -->
+        <menuitem id="menu_action_tmpl_attribute_value" name="Attribute Value Extra Price" action="action_template_attribute_value" parent="stock.menu_product_in_config_stock" sequence="6"/>
+
+
+        <!-- MRP Menus -->
+        <!-- MO lines -->
+        <menuitem id="menu_action_stock_move_mrp" name="MO Lines" action="action_stock_move_mrp" parent="mrp.menu_mrp_manufacturing"/>
+
+        <!-- BOM lines -->
+        <menuitem id="menu_action_bom_lines_mrp" name="BOM Lines" action="action_bom_lines_mrp" parent="mrp.menu_mrp_bom"/>
+
+
+        <!-- Employee Menu -->
+        <!-- Job Position -->
+        <menuitem id="menu_action_employee_job_position_view" name="Job Position" action="action_employee_job_position" parent="hr.menu_hr_root"/>
+
+
+        <!-- Bids -->
+        <menuitem id="menu_action_studio_bids_view" name="Bids" action="action_studio_bids" parent="crm.crm_menu_sales"/>
+
+    </data>
+</odoo>
